@@ -19,6 +19,9 @@ Route::domain('da.adlynk.in')->group(function () {
     Route::post('login', [App\Http\Controllers\Caller\LoginController::class, 'validateUser']);
     Route::get('login/{driver}/start', [App\Http\Controllers\Caller\LoginController::class, 'redirectToProvider']);
     Route::any('login/{driver}/callback', [App\Http\Controllers\Caller\LoginController::class, 'handleProviderCallback']);
+    Route::get('/html-page', function () {
+    return view('app-calendar');
+});
     Route::any('logout', [App\Http\Controllers\Caller\LoginController::class, 'Logout']);
     Route::middleware(['auth:web'])->group(function () {
     });
